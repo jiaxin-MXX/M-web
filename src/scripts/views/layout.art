@@ -1,0 +1,13 @@
+<div class="indexContainer">
+  <div class="contanier">
+    
+  </div>
+  <footer>
+    <ul>
+      <li data-to="position" class="active"><span class="yo-ico">&#xe614;</span><h5>首页</h5></li>
+      <li data-to="fenlei"><span class="yo-ico">&#xe613;</span><h5>分类</h5></li>
+      <li data-to="by"><span class="yo-ico">&#xe618;</span><h5>购物车</h5></li>
+      <li data-to="mine"><span class="yo-ico">&#xe615;</span><h5>个人中心</h5></li>
+    </ul>
+  </footer>
+</div>

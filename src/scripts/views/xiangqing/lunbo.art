@@ -1,0 +1,5 @@
+{{each result2.shop_info.ali_images}}
+<div class="swiper-slide slide2">
+    <img src='{{$value}}'>
+</div> 
+{{/each}}

@@ -1,0 +1,31 @@
+ <div class="top">
+    <header><img src='./assets/imgs/logo.jpg'></header>
+    <div class="search">
+            <div class="searchTxt">
+            <img src='./assets/imgs/sou-suo.png'>
+            <input type="text" placeholder="搜索"></input>
+            </div>
+    </div>
+    <main>
+        <div class="main2">
+            <div class="head">
+                <img src='./assets/imgs/arrow.png'>
+                <b>下拉刷新...</b>
+            </div>
+            <div class="swiper-container swiper1">
+                <div class="swiper-wrapper">
+                    
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div> 
+                <section class='home'>
+                
+                </section>
+            <div class="foot">
+                <img src='./assets/imgs/arrow.png'>
+                <b>上拉加载更多...</b>
+            </div>
+        </div>
+    </main>
+</div>

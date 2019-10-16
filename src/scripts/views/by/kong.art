@@ -1,0 +1,6 @@
+<div class='kong' style='display: flex;align-self: center;flex-direction: column;'>
+    <div class='kongimg'>
+        <img src='../../../assets/imgs/kong.gif'>
+    </div>
+    <p class='nohave' style='text-align: center;font-size: .2rem;color: lightblue;'>空的！猫都瞧不起你</p>
+</div>

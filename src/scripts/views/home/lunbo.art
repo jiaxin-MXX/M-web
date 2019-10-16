@@ -1,0 +1,7 @@
+{{each list}}
+    <div class="swiper-slide">
+    <img src='{{$value.image}}'>
+    </div>
+{{/each}}
+ 
+

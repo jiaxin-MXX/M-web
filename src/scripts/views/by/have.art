@@ -1,0 +1,16 @@
+<div class='goods'>
+
+</div>
+<div class='all-price'>
+    <div class='all-L'>
+        <div class='yuan'></div>
+        <div class='xuan'>已选<span class='jijian'>0</span></div>
+    </div>
+    <div class='all-C'>
+        合计:<p class='price'>￥<span class='qian'>0.00</span></p>
+    </div>
+    <div class='all-R'>
+        <div class='jiesuan'>现在结算</div>
+    </div>
+</div>
+

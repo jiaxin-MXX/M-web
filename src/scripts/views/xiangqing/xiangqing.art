@@ -1,0 +1,33 @@
+<div class="XQ">
+    <div class="X-title-bar">
+        <div class="X-nav-back">返回</div>
+        <h1 class="X-nav-title">{{result2.product_info.product_name}}</h1>
+    </div>
+    <div class='X-contain'>
+        <div>
+            <div class="swiper-container swiper3">
+                <div class="swiper-wrapper">
+                    
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div> 
+            <div class='X-jies'>
+                <h4>{{result2.product_info.product_name}}</h4>
+                <p>{{result2.shop_info.sku_mobile_sub_title}}</p>
+                <div class="price"><i>¥</i> <span>{{result2.price}}</span></div>
+            </div>
+            <div class='X-xq'>
+                <div class="title-header box-line">
+                    <div class="title-wrapper">商品详情</div>
+                </div>
+                <img src="{{result2.shop_info.tpl_content.base.images.ali_mobile.url[0]}}">
+            </div>
+        </div>
+    </div>
+    
+    <div class="X-bottom">
+        <div class="X-bottom-c"><p class='X-p X-now'>现在购买</p></div>
+        <div class="X-bottom-c"><p class='X-p X-by'>加入购物车</p></div>
+    </div>
+</div>

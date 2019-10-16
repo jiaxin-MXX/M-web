@@ -1,0 +1,36 @@
+{{each Ldata as $value}}
+<section class='Zhome-box'>
+    <section class='home-box'>
+        <div class='backg'>
+            <img src='{{$value.header.image}}'>
+        </div>
+    </section>
+    <div class='home-list'>
+            <div class="swiper-container swiper2">
+                <div class="swiper-wrapper">
+                {{each $value.skuInfo as key}}
+                <div data-to="xiangqing" data-spuId="{{key.spuId}}" class="swiper-slide find">
+                    <div class='list-img'>
+                        <img src="{{key.images}}">
+                    </div>
+                    <div class='list-h3'>
+                        <h3>{{key.skuTitle}}</h3>
+                    </div>
+                    <div class='list-price'>
+                        <span>￥</span><span>{{key.originalPrice}}</span>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</section>
+{{/each}}
+<section class='home2'>
+    <div class='headline-wrap'>
+        <h3>猜你喜欢</h3>
+    </div>
+    <ul class='like-list'>
+   
+    </ul>  
+</section>

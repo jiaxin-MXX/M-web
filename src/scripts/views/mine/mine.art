@@ -1,0 +1,17 @@
+<div class='mine'>
+    <div class='M-head'>个人中心</div>
+    <div class='M-M'>
+        <div class='M-center'>
+            <div class='box-userinfo'>
+                <div class='M-img'>
+                    <img src='../../../assets/imgs/person.png'>
+                </div>
+                <div class='M-zc'>登录/注册<p>></p></div>
+            </div>
+            <ul class='M-xq'>
+                <li>待收货<p>></p></li>
+                <li>待付款<p>></p></li>
+            </ul>
+        </div>
+    </div>
+</div>

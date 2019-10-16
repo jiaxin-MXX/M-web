@@ -1,0 +1,18 @@
+<div class="F-search">
+    <div class="F-searchTxt">
+        <img src='./assets/imgs/sou-suo.png'>
+        <input type="text" placeholder="搜索"></input>
+    </div>
+</div>
+<div class='F-search-contentor'>
+    <div class='F-left'>
+        <ul class="first-list">
+            
+        </ul>
+    </div>
+    <div class='F-right'>
+        <ul class='second-list'>
+           
+        <ul>
+    </div>
+</div>

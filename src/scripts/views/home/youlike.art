@@ -1,0 +1,14 @@
+{{each data}}
+<li data-to="xiangqing" data-spuId="{{$value.spuId}}" class='one find'>
+        <div class='imgs'>
+            <img src='{{$value.images}}' alt='商品图片'>
+        </div>
+        <div class='jianjie'>
+            <h3>{{$value.spuTitle}}</h3>
+        </div>
+        <div class='prices'>
+            <span>￥</span>
+            <span>{{$value.originalPrice}}</span>
+        </div>
+</li>
+{{/each}}
