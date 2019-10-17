@@ -4,6 +4,7 @@ import fenleiController from '../controllers/fenlei'
 import byController from '../controllers/by'
 import mineController from '../controllers/mine'
 import xiangqingController from '../controllers/xiangqing'
+import dingdanController from '../controllers/dingdan'
 class Router{
     constructor(){
         index.render()
@@ -23,7 +24,8 @@ class Router{
             fenleiController,
             byController,
             mineController,
-            xiangqingController
+            xiangqingController,
+            dingdanController
           }
         if(this.hash=='xiangqing'){
             index.render()

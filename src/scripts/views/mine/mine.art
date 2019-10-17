@@ -9,8 +9,8 @@
                 <div class='M-zc'>登录/注册<p>></p></div>
             </div>
             <ul class='M-xq'>
-                <li>待收货<p>></p></li>
-                <li>待付款<p>></p></li>
+                <li class='dai shou'>待收货<p>></p></li>
+                <li class='dai fu'>待付款<p>></p></li>
             </ul>
         </div>
     </div>

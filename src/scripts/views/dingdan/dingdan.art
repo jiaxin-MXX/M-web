@@ -1,0 +1,27 @@
+<div class='mine'>
+    <div class="B-title-bar">
+        <div class="B-nav-back">返回</div>
+        <h1 class="B-nav-title">订单详情</h1>
+    </div>
+    <div class='M-M'>
+        <div class='D-center'>
+            {{each data}}
+            <div class='good-info' data-spu={{$value.id}}>
+                <div class='zhans'>
+                    <div class='good-img'>
+                        <img src='{{$value.img}}'>
+                    </div>
+                    <div class='good-in'>
+                        <h4>{{$value.name}}</h4>
+                        <p class="item-attrs">{{$value.xiq}}</p>
+                        <p class='item-price'>
+                            ￥<span class='jiaq'>{{$value.price}}</span>&nbsp;x&nbsp;<span class='shuliang'>{{$value.count}}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class='deleat'>未付款</div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

@@ -77,13 +77,12 @@ class Position {
       let $main=$('main')
       // console.log($main)
       //初始获取数据
+      
       let bscoll=new BScroll.default($main.get(0),{
         disableMouse: false,
         disableTouch: false,
         probeType: 2
       })
-     
-      console.log(2)
       bscoll.scrollBy(0,-40)
       //初始状态     
       //滑动结束

@@ -52,6 +52,7 @@ class Mine{
                     html=fenlei();
                     $('.contanier').html(html);
                     that.addfun()
+                    that.addfun2()
                     $('.M-zc').html(us+'<p>></p>')
                     sessionStorage.setItem("user",us)
                 }else{
@@ -59,6 +60,17 @@ class Mine{
                 }
                
             })
+        })
+    }
+    addfun2(){
+        $('.dai').on('tap',function(){
+            if($(this).hasClass('shou')){
+                sessionStorage.setItem('type','1')
+            }
+            if($(this).hasClass('fu')){
+                sessionStorage.setItem('type','0')
+            }
+            location.hash='dingdan'
         })
     }
     render(){
@@ -69,6 +81,7 @@ class Mine{
             $('.M-zc').html(username+'<p>></p>')
         }
         this.addfun()     
+        this.addfun2()  
     }
 
 }

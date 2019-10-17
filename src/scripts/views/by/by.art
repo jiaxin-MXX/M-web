@@ -1,7 +1,7 @@
 <div class="B">
     <div class="B-title-bar">
         <div class="B-nav-back">返回</div>
-        <h1 class="B-nav-title">订单详情</h1>
+        <h1 class="B-nav-title">购物车</h1>
     </div>
     <div class='have-list' style='justify-content: center;'>
         

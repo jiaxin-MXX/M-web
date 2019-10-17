@@ -66,13 +66,15 @@ class By{
             that.allprice()
         })
         $('.deleat').on('tap',function(){
-            var arr=store.get('data');
-            
+            var usernn=sessionStorage.getItem('user')
+            var arr=store.get(usernn);
+            console.log(arr)
             arr.splice($(this).parent().index(),1)
+            console.log(arr)
             $(this).parent().remove();
-            store.set('data',arr)
+            store.set(usernn,arr)
             that.allprice()
-            if(!store.get('data').length){
+            if(!store.get(usernn).length){
                 that.addimg();
             }
             
