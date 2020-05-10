@@ -4,10 +4,11 @@ const xqdata=require('../models/xiangqing')
 const Xlunbo=require('../models/X-lunbo')
 const swiper=require('swiper')
 const store = require('store')
-
+import {get} from '../../utils/http'
 const BScroll = require('better-scroll')
 class Index {
   addLB(result2){
+    console.log(result2)
     let html = lunbo({
       result2
     })
@@ -27,32 +28,17 @@ class Index {
     let temp=[];
     let sku;
     let Xhash=location.hash.split('~')[1]
-    let result=await xqdata.get({
-      id:Xhash
-    })
-    sku=result.data.list[0].shop_info.default_sku
-    for(var i=0;i<result.data.list[0].sku_info.length;i++){
-      temp.push(result.data.list[0].sku_info[i].sku_id)
-    }
-    let id=temp.join(',')
-    let result2=await Xlunbo.get({
-      id:id
-    })
-    
-    let len=result2.data.list.length
-    
-    for(var i=0;i<len;i++){
-      if(result2.data.list[i].id==sku){
-        result2=result2.data.list[i];
-        break;
+    let result=await await get({
+      url: "/dev/lunboselect",
+      params: {
+        id:Xhash
       }
-    }
-    console.log(result2)
+    });
     let html = xiangqing({
-      result2
+      result2:result.data
     })
     document.querySelector('#box').innerHTML = html;
-    this.addLB(result2)
+    this.addLB(result.data)
     $('.X-nav-back').on('tap',function(){
       window.history.go(-1)
     })

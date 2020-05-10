@@ -10,7 +10,6 @@
                     <input class='password' placeholder='密码' type="password">
                 </div>
             </div>
-            <div class='den zhuce'>注册</div>
             <div class='den denglu'>登录</div>
         </div>
     </div>

@@ -1,22 +1,14 @@
-<li class='list-one'>
-    {{each data.banner as $img}}
-    <div class='banner'>
-        <img src='{{$img.image}}'>
-    </div>
-    {{/each}}
-    {{each data.second as $second}}
+<li class='list-one'>  
     <div class='data-list'>
-        <div class='title'>{{$second.classifyName}}</div>
         <div class='R-content'>
-            {{each $second.third as $third}}
-            <div data-to="xiangqing" data-spuid='{{$third.spuList[0]}}' class='R-item'>
+            {{each data.arr as $second}}
+            <div data-to="xiangqing" data-spuid='{{$second.id}}' class='R-item'>
                 <div class='img-cover'>
-                    <img src='{{$third.image}}'>
+                    <img src='http://localhost:4000/{{$second.firstname}}/{{$second.tupian[0]}}'>
                 </div>
-                <div class='R-jian over'>{{$third.classifyName}}</div>
+                <div class='R-jian over'>{{$second.name}}</div>
             </div> 
             {{/each}}  
         </div>
     </div>
-    {{/each}}
 </li>

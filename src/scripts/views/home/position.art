@@ -1,23 +1,23 @@
-{{each Ldata as $value}}
+{{each tem as $value}}
 <section class='Zhome-box'>
     <section class='home-box'>
         <div class='backg'>
-            <img src='{{$value.header.image}}'>
+            <img src='./assets/imgs/111.jpg'>
         </div>
     </section>
     <div class='home-list'>
             <div class="swiper-container swiper2">
                 <div class="swiper-wrapper">
-                {{each $value.skuInfo as key}}
-                <div data-to="xiangqing" data-spuId="{{key.spuId}}" class="swiper-slide find">
+                {{each $value.arr as key}}
+                <div data-to="xiangqing" data-spuId="{{key.id}}" class="swiper-slide find">
                     <div class='list-img'>
-                        <img src="{{key.images}}">
+                        <img src="http://localhost:4000/{{key.firstname}}/{{key.tupian[0]}}">
                     </div>
                     <div class='list-h3'>
-                        <h3>{{key.skuTitle}}</h3>
+                        <h3>{{key.title}}</h3>
                     </div>
                     <div class='list-price'>
-                        <span>￥</span><span>{{key.originalPrice}}</span>
+                        <span>￥</span><span>{{key.shoujia}}</span>
                     </div>
                 </div>
                 {{/each}}
