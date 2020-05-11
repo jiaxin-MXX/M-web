@@ -13,7 +13,7 @@ class Position {
       
     }
     renderer(list,Ldata,data){
-      console.log(1)
+      console.log(list,Ldata,data)
       let lunbo2=lunbo({
         list
       })
