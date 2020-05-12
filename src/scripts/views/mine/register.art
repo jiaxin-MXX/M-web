@@ -13,10 +13,11 @@
                     <input class='password' placeholder='密码' type="password"/>
                 </div>
                 <div class='M-z'>
-                    <input class='address' placeholder='收货地址'/>
+                    <input class='address' placeholder='收货地址' type="text"/>
                 </div>
             </div>
             <div class='den zhuce'>注册</div>
+            <div class='den goback'>返回</div>
         </div>
     </div>
 </div>

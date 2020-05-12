@@ -1,3 +1,10 @@
+/*
+ * @Description: 
+ * @Autor: Decade Xin
+ * @Date: 2020-04-14 15:49:10
+ * @LastEditors: Decade Xin
+ * @LastEditTime: 2020-05-12 14:14:19
+ */
 const xiangqing = require('../views/xiangqing/xiangqing.art')
 const lunbo = require('../views/xiangqing/lunbo.art')
 const xqdata=require('../models/xiangqing')
@@ -34,8 +41,9 @@ class Index {
         id:Xhash
       }
     });
+    let result2 = result.data
     let html = xiangqing({
-      result2:result.data
+      result2
     })
     document.querySelector('#box').innerHTML = html;
     this.addLB(result.data)
@@ -48,48 +56,45 @@ class Index {
       location.hash='by'
     })
     $('.X-by').on('tap',function(){
-      let username=sessionStorage.getItem("user")
-        if(!username){
+      let username
+        if(!store.get("user")){
           if(confirm("你还没有登录！臭弟弟,要登录吗？")){
             location.hash='mine'
           }
         }else{
-          var text=result2.name;
-          let arr=[];
-          let con=0; 
-          var name,xiq;
-          name=text.split('（')[0];
-          xiq=text.split('（')[1].split('）')[0];
-          var message={
-            id:result2.id,
-            name:name,
-            xiq:xiq,
-            img:result2.shop_info.ali_image,
-            price:result2.price,
-            count:1,
-            type:0
-          };
+          let arr
+          let flag = false
+          username =store.get("user").user
           if(store.get(username)){
-            arr=store.get(username);
+            arr = store.get(username)
+          }else{
+            arr = []
           }
-          for(var i=0;i<arr.length;i++){
-            if(arr[i].id==message.id&&arr[i].type==0){
-              arr[i].count+=message.count;
-              store.set(username, arr);
-              break;
-            }else{
-              con++;
+          for(let item of arr){
+            if(item.id == result2.id){
+              item.count++
+              flag = true
             }
           }
-          if(con==arr.length){
+          if(flag){
+            store.set(username,arr)
+            flag = false
+          }else{
+            let message={
+              id:result2.id,
+              name:result2.name,
+              xiq:result2.title,
+              img:result2.tupian[0],
+              price:result2.shoujia,
+              count:1,
+              type:0
+            };
             arr.push(message)
-            store.set(username, arr)
+            store.set(username,arr)
           }
           alert('在购物车等你哦')
         }
     })
-    
-    // console.log(store.get('user').name)
   }
 }
 
