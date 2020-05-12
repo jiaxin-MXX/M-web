@@ -1,5 +1,5 @@
 <div class='mine'>
-    <div class='M-head'>登录/注册</div>
+    <div class='M-head'>个人信息</div>
     <div class='M-M'>
         <div class='M-center'>
             <div class='z-m'>
@@ -16,7 +16,7 @@
                     <input class='address' placeholder='收货地址'/>
                 </div>
             </div>
-            <div class='den zhuce'>注册</div>
+            <div class='den zhuce'>修改</div>
         </div>
     </div>
 </div>
