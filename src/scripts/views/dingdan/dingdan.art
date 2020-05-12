@@ -19,7 +19,7 @@
                         </p>
                     </div>
                 </div>
-                <div class='deleat'>未付款</div>
+                <div class='deleat'>待收货</div>
             </div>
             {{/each}}
         </div>

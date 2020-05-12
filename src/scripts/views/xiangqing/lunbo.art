@@ -1,4 +1,4 @@
-{{each result2.shop_info.ali_images}}
+{{each result2.tupian}}
 <div class="swiper-slide slide2">
     <img src='{{$value}}'>
 </div> 

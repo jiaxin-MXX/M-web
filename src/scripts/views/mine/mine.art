@@ -6,11 +6,14 @@
                 <div class='M-img'>
                     <img src='../../../assets/imgs/person.png'>
                 </div>
-                <div class='M-zc'>登录/注册<p>></p></div>
+                <div class='M-zc'>登录/注册</div>
             </div>
             <ul class='M-xq'>
+                <li class='hai login'>登录<p>></p></li>
+                <li class='hai register'>注册<p>></p></li>
+            </ul>
+            <ul class='M-xq'>
                 <li class='dai shou'>待收货<p>></p></li>
-                <li class='dai fu'>待付款<p>></p></li>
             </ul>
         </div>
     </div>

@@ -4,6 +4,7 @@ import goods from '../views/by/goods.art'
 import kong from '../views/by/kong.art'
 const BScroll = require('better-scroll')
 const store = require('store')
+import {get,post} from '../../utils/http'
 class By{
     allprice(){
         let price=0;
@@ -66,7 +67,7 @@ class By{
             that.allprice()
         })
         $('.deleat').on('tap',function(){
-            var usernn=sessionStorage.getItem('user')
+            var usernn=store.get('user').user
             var arr=store.get(usernn);
             console.log(arr)
             arr.splice($(this).parent().index(),1)
@@ -84,11 +85,20 @@ class By{
         var html=kong()
         $('.have-list').html(html)
     }
-    by(data){
-        let that=this;
-        $('.jiesuan').on('tap',function(){
+    getdate(){
+	    const dt = new Date();
+    	const y = dt.getFullYear();
+    	const m = dt.getMonth() + 1;
+    	const d = dt.getDate();
+    	const time = y + '-' + m + '-' + d;
+		return time;
+    }
+    by(){
+        let that=this;    
+        $('.jiesuan').on('tap',async function(){
+            let username=store.get('user').user
+            let data=store.get(username);
             var arrindex=[];
-            console.log(data)
             if($('.qian').html()==0){
                 alert('真丑陋！连购物车都清空不了吗？')
             }else{
@@ -99,20 +109,29 @@ class By{
                         for(var j=0;j<data.length;j++){
                             if($('.good-info').eq(i).attr('data-spu')==data[j].id){
                                 data[j].type=1;
+                                arrindex.push(data[j])
                             }
                         }
                         $('.good-info').eq(i).remove();
                     }
                 }
                 that.allprice()
-                store.set(sessionStorage.getItem('user'),data)
+                store.set(username,data)
+                let result = await post({
+                    url: "/dev/orderadd",
+                    data:{
+                        time:that.getdate(),
+                        user:store.get('user'),
+                        data:arrindex
+                    }
+                })
             }
             
         })
     }
     render(){
         let html=fenlei();
-        let username=sessionStorage.getItem('user')
+        let username=store.get('user').user
         $('.contanier').html(html);
         $('.B-nav-back').on('tap',function(){
             window.history.go(-1)
@@ -123,7 +142,7 @@ class By{
             this.first(data);
             this.addtap();
             this.allprice();
-            this.by(data);
+            this.by();
         }else{
             this.addimg(); 
         }

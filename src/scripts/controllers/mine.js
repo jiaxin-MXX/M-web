@@ -1,65 +1,42 @@
 import fenlei from '../views/mine/mine.art'
 import denglu from '../views/mine/denglu.art'
+import zhuce from '../views/mine/register.art'
+import rename from '../views/mine/rename.art'
 const store = require('store')
+import {get,post} from '../../utils/http'
 class Mine{
-    addfun(){
-        let that=this;
-        let html;
-        $('.box-userinfo').on('tap',function(){
-            html=denglu();
-            $('.contanier').html(html);
-            $('.zhuce').on('tap',function(){
-                let count=0;
+    addfun1(){
+        let html=rename();
+        $('.contanier').html(html);
+        if(store.get('user')){
+            let data = store.get('user')
+            $('.name').get(0).value = data.user
+            $('.phone').get(0).value = data.phone
+            $('.password').get(0).value = data.password
+            $('.address').get(0).value = data.address
+        }
+        $('.updata').on('tap',async ()=>{
+            if(store.get('user')){
                 let data={
-                    name:$('.name').get(0).value,
+                    id:store.get('user').id,
+                    user:$('.name').get(0).value,
                     password:$('.password').get(0).value,
+                    phone:$('.phone').get(0).value,
+                    address:$('.address').get(0).value,
                 }
-                let arr;
-                if(store.get('user')){
-                    arr=store.get('user');
-                }else{
-                    arr=[];
+                let result = await post({
+                    url: "/dev/updataguke",
+                    data
+                })
+                if(result.message == '修改成功'){
+                    store.get('user',data)
+                    window.alert(result.message)
                 }
-                for(var i=0;i<arr.length;i++){
-                    if(arr[i].name==data.name){
-                        window.alert('存在该用户名！')
-                        break;
-                    }else{
-                        count++
-                    }
-                }
-                if(count==arr.length){
-                    arr.push(data)
-                    store.set('user',arr)
-                    window.alert('注册成功')
-                    
-                }
-                $('.name').get(0).value=$('.password').get(0).value=''
-            })
-            $('.denglu').on('tap',function(){
-                var judge=function(){
-                    var temparr=store.get('user')
-                    var len=temparr.length;
-                    for(var i=0;i<len;i++){
-                        if($('.name').get(0).value==temparr[i].name&&$('.password').get(0).value==temparr[i].password){
-                            return temparr[i].name;
-                        }
-                    }
-                    return 0;                    
-                }
-                let us=judge()
-                if(store.get('user')&&us){
-                    html=fenlei();
-                    $('.contanier').html(html);
-                    that.addfun()
-                    that.addfun2()
-                    $('.M-zc').html(us+'<p>></p>')
-                    sessionStorage.setItem("user",us)
-                }else{
-                    window.alert('用户名或密码不正确！')
-                }
-               
-            })
+                
+            }
+        })
+        $('.goback').on('tap',()=>{
+            this.render()
         })
     }
     addfun2(){
@@ -73,15 +50,91 @@ class Mine{
             location.hash='dingdan'
         })
     }
+    addfun3(){
+        let that = this
+        $('.hai').on('tap',function(){
+            if($(this).hasClass('login')){
+                let html=denglu();
+                $('.contanier').html(html);
+                $('.denglu').on('tap',async function(){
+                    var judge=async function(){
+                        let data={
+                            name:$('.name').get(0).value,
+                            password:$('.password').get(0).value,
+                        }
+                        let result = await get({
+                            url: "/dev/gukeselect2",
+                            params: {
+                              keyword:data.name
+                            }
+                          })
+                        for(let item of result.data){
+                            if(item.user==data.name && item.password==data.password){
+                                store.set('user',item)
+                                return true
+                            }
+                        }
+                        return false        
+                    }
+                    if(await judge()){
+                        html=fenlei();
+                        $('.contanier').html(html);
+                        that.addfun2()
+                        that.addfun3()
+                        $('.M-zc').html(store.get('user').user+'<p>></p>')
+                    }else{
+                        window.alert('用户名或密码不正确！')
+                    }
+                   
+                })
+                $('.goback').on('tap',()=>{
+                    that.render()
+                })
+            }
+            if($(this).hasClass('register')){
+                let html=zhuce();
+                $('.contanier').html(html);
+                $('.zhuce').on('tap',async function(){
+                    let data={
+                        name:$('.name').get(0).value,
+                        password:$('.password').get(0).value,
+                        phone:$('.phone').get(0).value,
+                        address:$('.address').get(0).value,
+                    }
+                    let result = await post({
+                        url:'/dev/gukeregister',
+                        data
+                    })
+                    window.alert(result.message)
+                    if(result.type == 'success'){
+                        html=fenlei();
+                        $('.contanier').html(html);
+                        that.addfun2()
+                        that.addfun3()
+                        
+                    }
+                })
+                $('.goback').on('tap',()=>{
+                    that.render()
+                })
+            }
+        })
+    }
     render(){
         let html=fenlei();
+        let username
         $('.contanier').html(html);
-        let username=sessionStorage.getItem('user')
+        if(store.get('user')){
+            username=store.get('user').user
+        }
         if(username){
             $('.M-zc').html(username+'<p>></p>')
+            $('.box-userinfo').on('tap',()=>{
+                this.addfun1()
+            })
         }
-        this.addfun()     
-        this.addfun2()  
+        this.addfun2()     
+        this.addfun3()  
     }
 
 }

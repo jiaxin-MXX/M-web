@@ -1,5 +1,5 @@
-{{each data}}
-    <li data-id='{{$value.classifyId}}' class="">
-        {{$value.classifyName}}
+{{each tem}}
+    <li data-id='{{$value.title}}' class="">
+        {{$value.title}}
     </li>
 {{/each}}

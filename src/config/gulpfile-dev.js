@@ -75,6 +75,13 @@ function gulpServer(){
                     pathRewrite:{
                         '^/api':''
                     }
+                }),
+                proxy('/dev',{
+                    target:'http://localhost:4000',
+                    changeOrigin:true,
+                    pathRewrite:{
+                        '^/dev':''
+                    }
                 })
             ]
         }
